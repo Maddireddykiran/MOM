@@ -88,13 +88,20 @@ const App: React.FC = () => {
     return `📅 Daily Stand-up Meeting - ${formatDate(date)}
 ===========================================
 
-📋 Summary of Tasks and Updates
+📋 Task Assignments & Updates
 -------------------------------------------
 
 ${members.filter(m => m.saved).map(member => `
-👤 Team Member: ${member.name}
-🔸 Task/Update: ${member.status}
--------------------------------------------`).join('\n')}
+✅ ASSIGNED TO: ${member.name.toUpperCase()}
+-------------------
+📌 Task Details:
+${member.status}
+
+`).join('\n')}
+-------------------------------------------
+
+👥 Team Members CC'd:
+${TEAM_MEMBERS.join(', ')}
 
 Note: This is an automated task assignment email. Please reach out if you have any questions.
 
