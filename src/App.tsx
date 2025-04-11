@@ -10,6 +10,14 @@ const TEAM_EMAILS = [
   'vanam413@gmail.com'
 ];
 
+// Team member names for dropdown
+const TEAM_MEMBERS = [
+  'Kiran',
+  'Pranav',
+  'Gokul',
+  'Naveen'
+];
+
 interface TeamMember {
   id: string;
   name: string;
@@ -145,13 +153,18 @@ MoM Team`;
                   <>
                     <div className="row mb-3">
                       <div className="col-md-11">
-                        <input
-                          type="text"
-                          className="form-control"
-                          placeholder="Team Member Name"
+                        <select
+                          className="form-select"
                           value={member.name}
                           onChange={(e) => handleMemberChange(member.id, 'name', e.target.value)}
-                        />
+                        >
+                          <option value="">Select Team Member</option>
+                          {TEAM_MEMBERS.map((name) => (
+                            <option key={name} value={name}>
+                              {name}
+                            </option>
+                          ))}
+                        </select>
                       </div>
                       <div className="col-md-1 d-flex align-items-center justify-content-end">
                         <button
